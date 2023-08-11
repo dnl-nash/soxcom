@@ -1,0 +1,10 @@
+source ./config
+if [ -z $user ];then
+echo "Enter user"
+read -r -s user
+fi
+if [ -z $host ];then
+echo "Enter host"
+read -r -s remote
+fi
+sox -q -d -t wav -|ssh $user@$remote "sox -t wav - -d -q"
